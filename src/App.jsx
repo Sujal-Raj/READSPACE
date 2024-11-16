@@ -3,11 +3,20 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './Components/Home'
+import About from './Components/About';
+import SearchABook from './Components/SearchABook';
+
+
 
 function App() {
   return (
    <>
-    <h1>Hello</h1>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/about' element={<About/>}/> 
+      <Route path='/searchabook' element={<SearchABook/>}/> 
+    </Routes>
    </>
   )
 }
