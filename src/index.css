@@ -17,3 +17,12 @@ html, body{
     color: transparent;
     -webkit-text-stroke: 1px rgba(52, 221, 153);
 } */
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
