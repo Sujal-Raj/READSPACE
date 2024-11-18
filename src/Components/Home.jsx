@@ -9,11 +9,13 @@ import FooterTitle from '../OtherComponents/FooterTitle'
 import BookDiv from '../OtherComponents/BookDiv'
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+// import Loader from 'react-loader-spinner';
 
 
 function Home() {
     const scrollRefTrending = useRef(null);
     const scrollRefRomance = useRef(null);
+    const scrollRefFiction = useRef(null);
     useGSAP(()=>{
         gsap.from(".animated-img",{
             // x:-200,
@@ -56,6 +58,22 @@ function Home() {
           ease: "power2.out",
         });
     };
+
+    const scrollLeftFiction = () => {
+        gsap.to(scrollRefFiction.current, {
+          scrollLeft: scrollRefRomance.current.scrollLeft - 300,
+          duration: 1,
+          ease: "power2.out",
+        });
+    };
+    
+    const scrollRightFiction = () => {
+        gsap.to(scrollRefFiction.current, {
+          scrollLeft: scrollRefRomance.current.scrollLeft + 300,
+          duration: 1,
+          ease: "power2.out",
+        });
+    };
     
 
       
@@ -64,6 +82,7 @@ function Home() {
      // State to store the fetched trending
   const [trending, setTrending] = useState(null);
   const [romance, setRomance] = useState(null);
+  const [fiction, setFiction] = useState(null);
 
   // State to manage loading and error
   const [loading, setLoading] = useState(true);
@@ -109,6 +128,26 @@ function Home() {
   }, []); // Empty dependency array to run only once on mount
 
 
+  useEffect(() => {
+    // Fetch trending from the API
+    fetch("https://www.googleapis.com/books/v1/volumes?q=subject:science+fiction")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON response
+      })
+      .then((result) => {
+        setFiction(result.items); // Save the data in state
+        setLoading(false); // Stop loading
+      })
+      .catch((err) => {
+        setError(err.message); // Save error message in state
+        setLoading(false); // Stop loading
+      });
+  }, []); // Empty dependency array to run only once on mount
+
+
 
   return (
     <>
@@ -139,8 +178,8 @@ function Home() {
             {loading ?
             <> 
             <div className='h-[100%] w-[100%] flex items-center justify-center'>
-                    {/* <p className='text-xl'>Loading...</p> */}
-                    <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
+                    <p className='text-xl'>Loading...</p>
+                    {/* <Loader type="TailSpin" color="#00BFFF" height={50} width={50} /> */}
             </div>
             </>
              : null}
@@ -152,7 +191,7 @@ function Home() {
             </>
             }
             {trending && trending.length > 0 ? (
-            <div ref={scrollLeftTrending} className=" scrollbar-hide flex overflow-x-auto space-x-6 p-4">
+            <div ref={scrollRefTrending} className=" scrollbar-hide flex overflow-x-auto space-x-6 p-4">
                 {trending.map((item, index) => (
                 <BookDiv key={index} item={item} />
                 ))}
@@ -171,8 +210,8 @@ function Home() {
             {loading ?
             <> 
             <div className='h-[100%] w-[100%] flex items-center justify-center'>
-                    {/* <p className='text-xl'>Loading...</p> */}
-                    <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
+                    <p className='text-xl'>Loading...</p>
+                    {/* <Loader type="TailSpin" color="#00BFFF" height={50} width={50} /> */}
             </div>
             </>
              : null}
@@ -184,7 +223,7 @@ function Home() {
             </>
             }
             {romance && romance.length > 0 ? (
-            <div ref={scrollLeftRomance} className=" scrollbar-hide flex overflow-x-auto space-x-6 p-4">
+            <div ref={scrollRefRomance} className=" scrollbar-hide flex overflow-x-auto space-x-6 p-4">
                 {romance.map((item, index) => (
                 <BookDiv key={index} item={item} />
                 ))}
@@ -192,8 +231,38 @@ function Home() {
             ) : (
             <p>No books found.</p>
             )}
-
-        </div>     
+        </div>
+        <div className='h-[10vh] px-6 flex items-center mt-6'>
+            <p className='gitsi-text uppercase text-4xl'>Science fiction.</p>
+        </div>  
+        <div className=' h-[500px] relative'>
+            <button onClick={scrollLeftFiction} className='h-10 w-10 flex items-center justify-center absolute top-1/2 left-3 bg-zinc-900 border rounded-[50%]'><FaArrowLeft /></button>
+            <button onClick={scrollRightFiction} className='h-10 w-10 flex items-center justify-center absolute top-1/2 right-3 bg-zinc-900 border rounded-[50%]'><FaArrowRight /></button>
+            {loading ?
+            <> 
+            <div className='h-[100%] w-[100%] flex items-center justify-center'>
+                    <p className='text-xl'>Loading...</p>
+                    {/* <Loader type="TailSpin" color="#00BFFF" height={50} width={50} /> */}
+            </div>
+            </>
+             : null}
+            {error &&
+            <>
+            <div className='h-[100%] w-[100%] flex items-center justify-center'>
+                    <p className='text-xl'>Error: {error}</p>
+            </div>
+            </>
+            }
+            {fiction && fiction.length > 0 ? (
+            <div ref={scrollRefFiction} className=" scrollbar-hide flex overflow-x-auto space-x-6 p-4">
+                {fiction.map((item, index) => (
+                <BookDiv key={index} item={item} />
+                ))}
+            </div>
+            ) : (
+            <p>No books found.</p>
+            )}
+        </div>    
     </div>
     </>
   )
