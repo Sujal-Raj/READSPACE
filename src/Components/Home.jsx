@@ -166,7 +166,7 @@ function Home() {
                 <img className='animated-img absolute top-4 left-80  h-[400px] rounded-xl' src={Book3} alt="" />
             </div>
         </div>
-        <FooterTitle/>
+        <FooterTitle firstWord="read" secondWord="space"/>
     </div>
     <div className="page2 min-h-screen ">
         <div className='h-[10vh] px-6 flex items-center'>
