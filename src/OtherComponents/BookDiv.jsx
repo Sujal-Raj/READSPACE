@@ -1,5 +1,6 @@
 import React from 'react'
 import Book1 from '../assets/1003w-vAt8PH1CmqQ.webp'
+import { Link } from 'react-router-dom';
 
 function BookDiv({item}) {
     // console.log(item)
@@ -24,9 +25,11 @@ function BookDiv({item}) {
                     Author: {authors ? authors.join(', ') : 'Unknown'}
                     </p>
                 </div>
-                <button className='bg-emerald-400 p-2 rounded-lg font-semibold'>
-                    Explore
-                </button>
+                <Link to={`/bookdetails/${item.id}`} state={{ book: item }}>
+                    <button className='bg-emerald-400 p-2 rounded-lg font-semibold'>
+                        Explore
+                    </button>
+                </Link>
             </div>
         </div>
     </>

@@ -6,7 +6,7 @@ import './App.css'
 import Home from './Components/Home'
 import About from './Components/About';
 import SearchABook from './Components/SearchABook';
-
+import BookDetails from './Components/BookDetails';
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/> 
       <Route path='/searchabook' element={<SearchABook/>}/> 
+      <Route path='/bookdetails/:id' element={<BookDetails/>}/> 
     </Routes>
    </>
   )
