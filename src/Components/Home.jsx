@@ -9,7 +9,15 @@ import FooterTitle from '../OtherComponents/FooterTitle'
 import BookDiv from '../OtherComponents/BookDiv'
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import Features from '../OtherComponents/Features'
 // import Loader from 'react-loader-spinner';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import catogery from "../assets/catogery.png"
+import details from "../assets/details.png"
+import onlineReading from "../assets/online-reading.jpeg"
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 function Home() {
@@ -74,6 +82,27 @@ function Home() {
           ease: "power2.out",
         });
     };
+
+
+    // useEffect(()=>{
+    //   const features = document.querySelectorAll(".feature-container");
+    //   features.forEach((feature, index) => {
+    //     gsap.from(features,{
+    //       y:100,
+    //       opacity:0,
+    //       duration:0.04,
+    //       stagger:0.1,
+    //       ease: "power2.out",
+    //       scrollTrigger:{
+    //         trigger:".feature-page",
+    //         start:"top 80%",
+    //         end:"bottom 20%",
+    //         // markers:true,
+    //         toggleActions:"play none none reverse",
+    //       }
+    //     })
+    //   })
+    // })
     
 
       
@@ -169,7 +198,7 @@ function Home() {
         <FooterTitle firstWord="read" secondWord="space"/>
     </div>
     <div className="page2 min-h-screen ">
-        <div className='h-[10vh] px-6 flex items-center'>
+        <div className='h-[10vh] px-6 flex items-center bg-zinc-800'>
             <p className='gitsi-text uppercase text-4xl'>Trending.</p>
         </div>    
         <div className=' h-[500px] relative'>
@@ -201,7 +230,7 @@ function Home() {
             )}
 
         </div>  
-        <div className='h-[10vh] px-6 flex items-center mt-6'>
+        <div className='h-[10vh] px-6 flex items-center mt-6 bg-zinc-800'>
             <p className='gitsi-text uppercase text-4xl'>Romance.</p>
         </div>    
         <div className=' h-[500px] relative'>
@@ -232,7 +261,7 @@ function Home() {
             <p>No books found.</p>
             )}
         </div>
-        <div className='h-[10vh] px-6 flex items-center mt-6'>
+        <div className='h-[10vh] px-6 flex items-center mt-6 bg-zinc-800'>
             <p className='gitsi-text uppercase text-4xl'>Science fiction.</p>
         </div>  
         <div className=' h-[500px] relative'>
@@ -263,6 +292,15 @@ function Home() {
             <p>No books found.</p>
             )}
         </div>    
+    </div>
+    <div className="feature-page mt-10">
+        <div className='h-[10vh] px-6 flex items-center bg-zinc-800'>
+            <p className='gitsi-text uppercase text-4xl'>Features.</p>
+        </div> 
+        <Features firstWord="search" secondWord="Functionality" para="Users can search for books by title, author, or subject using the search a book option." imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvDYkbyJJyOOt1oUe5EDKcTjBOYM6hI9Erg&s"/>
+        <Features firstWord="Category" secondWord="Based Browsing" para="Allow users to browse books by categories like Romance, Thriller, Science Fiction, or Non-Fiction." imgSrc={catogery}/>
+        <Features firstWord="Book " secondWord="Details" para="Provide a dedicated page with detailed information about the selected book, including title, author, description, and publisher." imgSrc={details}/>
+        <Features firstWord="Read  " secondWord="Online " para="Users can read books online via the provided web reader or download available PDFs." imgSrc={onlineReading}/>
     </div>
     </>
   )
