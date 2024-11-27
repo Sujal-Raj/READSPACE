@@ -10,10 +10,16 @@ Features 🌟
 
 📖 Explore Books
 Trending Section: Displays a curated list of trending books.
+
+
 Genre-Based Sections: Browse books by genres like Romance, Mystery, Sci-Fi, and more.
+
+
 🖱️ Interactive UI
 Smooth Animations: Powered by GSAP, offering smooth scrolling and image transitions.
 Book Details Page: Click on "Explore" to view detailed information about a specific book.
+
+
 🔍 Responsive Design
 Mobile-friendly layout ensures a consistent experience across devices.
 
@@ -52,6 +58,8 @@ Future Enhancements 🔮
 
 
 User Accounts: Enable personalized recommendations and wishlists.
+
+
 Real-Time Updates: Fetch live data for new releases and popular titles.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
