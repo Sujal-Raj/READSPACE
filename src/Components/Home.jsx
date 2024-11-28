@@ -15,6 +15,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import catogery from "../assets/catogery.png"
 import details from "../assets/details.png"
 import onlineReading from "../assets/online-reading.jpeg"
+import { Link } from 'react-router-dom'
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -302,6 +303,27 @@ function Home() {
         <Features firstWord="Book " secondWord="Details" para="Provide a dedicated page with detailed information about the selected book, including title, author, description, and publisher." imgSrc={details}/>
         <Features firstWord="Read  " secondWord="Online " para="Users can read books online via the provided web reader or download available PDFs." imgSrc={onlineReading}/>
     </div>
+    <footer className='min-h-[60vh] mt-10  relative'>
+    <div className='min-h-[10vh]  flex items-center justify-between px-10'>
+        <div className="logo flex flex-col">
+          <h1 className='nav-logo gitsi-text text-4xl'>READ<span className=' text-emerald-400'>SPACE</span>.</h1>
+          <div className=''>
+            <p className='text-xl text-zinc-600'>© 2024 Features Inc. All rights reserved | READSPACE </p>
+          </div>
+        </div>
+        <div className="nav-links flex flex-col gap-10  font-medium text-xl underline">
+          <Link to="https://github.com/Sujal-Raj" target="_blank">Github</Link>
+          <Link to="https://www.linkedin.com/in/sujalraj1/" target="_blank">Linkdein</Link>
+          <Link to="https://github.com/Sujal-Raj/READSPACE" target="_blank">Get the code</Link>
+        </div>
+    </div>
+    {/* <div className='absolute bottom-[50%]'>
+      <p className='text-xl text-zinc-600 px-10'>© 2024 Features Inc. All rights reserved | READSPACE </p>
+    </div> */}
+            <div className=' absolute bottom-0 w-full'>
+              <FooterTitle firstWord="let's" secondWord="connect"/>
+            </div>
+    </footer>
     </>
   )
 }
