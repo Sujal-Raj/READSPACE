@@ -48,7 +48,7 @@ function BookDetails() {
                         Read Online
                     </button>
                 </Link>
-                <Link to={downloadLink}>
+                <Link to={downloadLink} target='_blank'>
                     <button className='bg-blue-400 p-2 rounded-lg font-semibold'>
                         Buy Now
                     </button>
