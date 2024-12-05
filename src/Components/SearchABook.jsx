@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import BookDiv from '../OtherComponents/BookDiv';
-
 function SearchABook() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState(null);
   const [loadingText, setLoadingText] = useState("Search to see results.");
+
+
+  useEffect(() => {
+    document.title = 'Search a book - ReadSpace | Online library to read and download books online ';
+  }, []);
 
   const fetchBooks = ()=>{
     setLoading(true);

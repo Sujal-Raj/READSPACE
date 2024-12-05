@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import FooterTitle from '../OtherComponents/FooterTitle'
 
+
 function About() {
+
+  useEffect(() => {
+    document.title = 'About - ReadSpace | Online library to read and download books online ';
+  }, []);
+
   return (
     <>
       <Navbar/>

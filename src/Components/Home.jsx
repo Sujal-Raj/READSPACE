@@ -25,6 +25,11 @@ function Home() {
     const scrollRefTrending = useRef(null);
     const scrollRefRomance = useRef(null);
     const scrollRefFiction = useRef(null);
+
+    useEffect(() => {
+      document.title = 'Home - ReadSpace | Online library to read and download books online ';
+    }, []);
+
     useGSAP(()=>{
         gsap.from(".animated-img",{
             // x:-200,
