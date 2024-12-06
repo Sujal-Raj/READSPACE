@@ -308,15 +308,34 @@ function Home() {
         <Features firstWord="Book " secondWord="Details" para="Provide a dedicated page with detailed information about the selected book, including title, author, description, and publisher." imgSrc={details}/>
         <Features firstWord="Read  " secondWord="Online " para="Users can read books online via the provided web reader or download available PDFs." imgSrc={onlineReading}/>
     </div>
-    <footer className='min-h-[60vh] mt-10  relative'>
+    <footer className='min-h-[60vh] mt-12  relative'>
     <div className='min-h-[10vh]  flex items-center justify-between px-10'>
-        <div className="logo flex flex-col">
+        {/* <div className="logo flex flex-col">
           <h1 className='nav-logo gitsi-text text-4xl'>READ<span className=' text-emerald-400'>SPACE</span>.</h1>
           <div className=''>
             <p className='text-xl text-zinc-600'>© 2024 Features Inc. All rights reserved | READSPACE </p>
           </div>
+        </div> */}
+        <div className="logo flex flex-col">
+          {/* <h1 className='nav-logo gitsi-text text-4xl'>READ<span className=' text-emerald-400'>SPACE</span>.</h1> */}
+          <img className='h-[90%] w-52' src="/logo.png" alt="" />
+          <div className=''>
+            <p className='text-xl text-zinc-600'>© 2024 Features Inc. All rights reserved | READSPACE </p>
+          </div>
         </div>
-        <div className="nav-links flex flex-col gap-10  font-medium text-xl underline">
+        <div className="nav-links flex flex-col gap-6  font-medium text-xl underline">
+        <h1 className=' opacity-60'>Resources</h1>
+          <Link to="https://developers.google.com/books" target="_blank">Google Books API </Link>
+          <Link to="https://reactrouter.com/" target="_blank">React-router-dom</Link>
+          <Link to="https://gsap.com/" target="_blank">GSAP</Link>
+        </div>
+        {/* <div className="nav-links flex flex-col gap-10  font-medium text-xl underline">
+          <Link to="https://github.com/Sujal-Raj" target="_blank">Github</Link>
+          <Link to="https://www.linkedin.com/in/sujalraj1/" target="_blank">Linkdein</Link>
+          <Link to="https://github.com/Sujal-Raj/READSPACE" target="_blank">Get the code</Link>
+        </div> */}
+        <div className="nav-links flex flex-col gap-6  font-medium text-xl underline">
+          <h1 className=' opacity-60'>Follow us</h1>
           <Link to="https://github.com/Sujal-Raj" target="_blank">Github</Link>
           <Link to="https://www.linkedin.com/in/sujalraj1/" target="_blank">Linkdein</Link>
           <Link to="https://github.com/Sujal-Raj/READSPACE" target="_blank">Get the code</Link>

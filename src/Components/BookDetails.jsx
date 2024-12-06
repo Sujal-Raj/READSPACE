@@ -43,7 +43,7 @@ function BookDetails() {
                 </p>
             </div>
             <div className='absolute bottom-20 w-full bg-zinc-800 py-4 flex items-center justify-center gap-5 rounded-lg'>
-                <Link to={webReadLink || readLink} >
+                <Link to={webReadLink || readLink} target='_blank'>
                     <button className='bg-emerald-400 p-2 rounded-lg font-semibold'>
                         Read Online
                     </button>
